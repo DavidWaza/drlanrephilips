@@ -1,9 +1,12 @@
 import About from "./components/About";
+import Booking from "./components/Booking";
 import Collaborations from "./components/Collaborations";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import KeyAchievement from "./components/KeyAchievement";
 import KeyAreas from "./components/Keyareas";
 import KeyExpertise from "./components/KeyExpertise";
+import SocialConnect from "./components/SocialConnect";
 import Testimonial from "./components/Testimonial";
 import VideoBlock from "./components/VideoBlock";
 
@@ -18,8 +21,11 @@ export default function Home() {
       <VideoBlock youtubeId={`${youtubeId}`} />
       <KeyAreas />
       <KeyAchievement />
+      <Booking />
       <Collaborations />
       <Testimonial />
+      <SocialConnect />
+      <Footer />
     </main>
   );
 }
