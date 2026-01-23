@@ -14,7 +14,7 @@ export default function AboutPage() {
           breadcrumbs={[{ label: "About", href: "/about" }]}
         />
         <AboutContent />
-        <AchievementsRecognition />
+        {/* <AchievementsRecognition /> */}
       </main>
       <Footer />
     </>
