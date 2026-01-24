@@ -15,13 +15,13 @@ export default function About() {
       {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.015]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)
-          `,
-          backgroundSize: "64px 64px",
-        }}
+        // style={{
+        //   backgroundImage: `
+        //     linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+        //     linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)
+        //   `,
+        //   backgroundSize: "64px 64px",
+        // }}
       />
 
       {/* Content */}
@@ -30,9 +30,9 @@ export default function About() {
           {/* ================= LEFT: TITLE & STATS ================= */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12 bg-blue-600" />
+              <div className="h-px w-12" />
               <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-blue-600 font-semibold">
-                About Dr. Phillips
+                About Dr. Lanre Phillips
               </span>
             </div>
             <motion.div
@@ -59,7 +59,6 @@ export default function About() {
             </motion.div>
           </div>
 
-
           {/* ================= RIGHT: CONTENT ================= */}
           <div className="lg:col-span-7">
             <motion.div
@@ -79,11 +78,13 @@ export default function About() {
                   text-slate-700
                 "
                 >
-                  For over <span className="font-semibold text-slate-900">25 years</span>, Dr. Lanre Phillips has helped
-                  motivated individuals and organisations achieve breakthrough
-                  results. Through customized coaching, workshops, and training
-                  programs, he provides the tools and strategies needed to overcome
-                  obstacles and sharpen leadership capacity.
+                  For over{" "}
+                  <span className="font-semibold text-slate-900">25 years</span>
+                  , Dr. Lanre Phillips has helped motivated individuals and
+                  organisations achieve breakthrough results. Through customized
+                  coaching, workshops, and training programs, he provides the
+                  tools and strategies needed to overcome obstacles and sharpen
+                  leadership capacity.
                 </p>
 
                 <p
@@ -94,15 +95,20 @@ export default function About() {
                   text-slate-700
                 "
                 >
-                  Let Dr. Phillips' battle-tested expertise inspire your journey of
-                  self-improvement, team building, and sustainable success. It is
-                  time to gain the perspective of a true mentor.
+                  Let Dr. Phillips' battle-tested expertise inspire your journey
+                  of self-improvement, team building, and sustainable success.
+                  It is time to gain the perspective of a true mentor.
                 </p>
               </div>
 
               {/* Key areas */}
               <div className="mt-10 grid grid-cols-2 gap-4">
-                {["Leadership Development", "Team Excellence", "Strategic Growth", "Sustainable Results"].map((item, i) => (
+                {[
+                  "Leadership Development",
+                  "Team Excellence",
+                  "Strategic Growth",
+                  "Sustainable Results",
+                ].map((item, i) => (
                   <motion.div
                     key={item}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -112,7 +118,9 @@ export default function About() {
                     className="flex items-center gap-2"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                    <span className="font-inter text-sm text-slate-600">{item}</span>
+                    <span className="font-inter text-sm text-slate-600">
+                      {item}
+                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -144,7 +152,11 @@ export default function About() {
                 <motion.span
                   className="relative z-10"
                   animate={{ x: [0, 4, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.5,
+                    ease: "easeInOut",
+                  }}
                 >
                   →
                 </motion.span>

@@ -156,7 +156,7 @@ export default function AboutContent() {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-[#5D747C] font-semibold">
-                      About Dr. Phillips
+                      About Dr. Lanre Phillips
                     </span>
                     <h3 className="font-changa-one text-2xl text-neutral-900 mt-1">
                       The Full Story
@@ -268,21 +268,31 @@ export default function AboutContent() {
               {/* Trimmed text */}
               <div className="space-y-6 font-inter text-lg text-slate-600 leading-relaxed">
                 <p>
-                  Dr. Lanre Phillips is a seasoned professional whose experience
-                  has spanned over{" "}
+                  Dr. Lanre Phillips is a visionary leader, boasting an
+                  illustrious career spanning close to{" "}
                   <span className="font-semibold text-slate-900">
-                    25 years in FMCG, Banking and Telecommunications industry
-                  </span>
-                  . In the social enterprise space, he has worked with several
-                  business hubs, incubators and accelerators in Nigeria and
-                  other parts of Africa.
+                    3 decades across dynamic industries such as FMCG, Banking,
+                    Telecommunications, and Information Technology.
+                  </span>{" "}
+                  Widely acclaimed for his strategic acumen, Dr. Phillips is a
+                  mastermind in driving organizational growth through the twin
+                  pillars of human capacity development and flawless strategic
+                  implementation.
                 </p>
 
                 <p>
-                  He has an unusual passion for the growth of Small business
-                  through the development of human capacity and implementation
-                  of sound business strategies which translate into operational
-                  excellence...
+                  His impactful collaborations with diverse organisations within
+                  and outside the African continent underscore his commitment to
+                  operational excellence. A two- time{" "}
+                  <span className="font-semibold text-slate-900">
+                    TED speaker
+                  </span>
+                  , Dr. Phillips not only shares his insights but actively
+                  shapes the discourse on leadership sales strategies and
+                  innovation amongst other topics. As the CEO/Principal Partner
+                  at Elpee Consults, He continues to spearhead transformative
+                  initiatives, leaving an indelible mark on the business
+                  landscape.
                 </p>
               </div>
 

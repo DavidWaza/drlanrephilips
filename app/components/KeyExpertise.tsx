@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Compass, Settings, Lightbulb } from "lucide-react";
+import { Compass, Settings, Lightbulb, Users } from "lucide-react";
 
 const expertise = [
   {
@@ -21,6 +21,12 @@ const expertise = [
     description:
       "A champion of societal progress, Dr. Phillips partners with NGOs, startup hubs, and accelerators to foster innovation, entrepreneurship, and scalable social impact.",
     icon: Lightbulb,
+  },
+  {
+    title: "HR and Organizational Development",
+    description:
+      "Dr. Phillips combines strategic insights with human capital development by leading talent development, organizational restructuring, and leadership initiatives, resulting in enhanced employee engagement, retention, and organizational culture.",
+    icon: Users,
   },
 ];
 
@@ -73,7 +79,7 @@ export default function KeyExpertise() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-8">
           {expertise.map((item, index) => {
             const Icon = item.icon;
 
@@ -89,7 +95,7 @@ export default function KeyExpertise() {
                   delay: index * 0.1,
                 }}
                 whileHover={{ y: -6 }}
-                className="group relative rounded-2xl border border-neutral-300/60 bg-white/70 p-8 backdrop-blur-sm transition-all"
+                className="group relative w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] rounded-2xl border border-neutral-300/60 bg-white/70 p-8 backdrop-blur-sm transition-all"
               >
                 {/* Hover glow */}
                 <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">

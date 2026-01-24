@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -46,23 +46,23 @@ export default function TestimonialSlider() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % testimonials.length);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setDirection(-1);
+    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
     }, INTERVAL);
 
     return () => clearInterval(timer);
-  }, [index]);
-
-  const handleNext = () => {
-    setDirection(1);
-    setIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setDirection(-1);
-    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [handleNext]);
 
   const handleDotClick = (idx: number) => {
     setDirection(idx > index ? 1 : -1);
@@ -105,18 +105,19 @@ export default function TestimonialSlider() {
             transition={{ duration: 0.6 }}
           >
             <h2
-            className="
+              className="
               font-changa-one
               text-4xl md:text-5xl
               leading-[1.05]
               tracking-tight
               text-neutral-900
             "
-          >
-            What <span className="text-neutral-500">People Say</span>
-          </h2>
+            >
+              What <span className="text-neutral-500">People Say</span>
+            </h2>
             <p className="text-lg text-neutral-600 max-w-2xl mx-auto mt-2">
-              Hear from leaders who've transformed their organizations with Dr. Lanre's guidance
+              Hear from leaders who&apos;ve transformed their organizations with
+              Dr. Lanre&apos;s guidance
             </p>
           </motion.div>
         </div>
@@ -137,16 +138,16 @@ export default function TestimonialSlider() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ 
+                transition={{
                   x: { type: "spring", stiffness: 300, damping: 30 },
                   opacity: { duration: 0.3 },
-                  scale: { duration: 0.3 }
+                  scale: { duration: 0.3 },
                 }}
                 className="relative z-10"
               >
                 {/* Quote */}
                 <p className="text-xl sm:text-2xl text-neutral-700 leading-relaxed mb-10 max-w-3xl mx-auto text-center font-light">
-                  "{testimonials[index].quote}"
+                  &quot;{testimonials[index].quote}&quot;
                 </p>
 
                 {/* Author Info */}
@@ -161,8 +162,16 @@ export default function TestimonialSlider() {
                       />
                     </div>
                     <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-2">
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -191,7 +200,7 @@ export default function TestimonialSlider() {
           >
             <ChevronLeft className="w-6 h-6 text-neutral-700 group-hover:text-neutral-900" />
           </button>
-          
+
           <button
             onClick={handleNext}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-neutral-200"
@@ -208,8 +217,8 @@ export default function TestimonialSlider() {
               key={idx}
               onClick={() => handleDotClick(idx)}
               className={`h-2.5 rounded-full transition-all duration-300 ${
-                idx === index 
-                  ? "bg-[#060B18] w-12" 
+                idx === index
+                  ? "bg-[#060B18] w-12"
                   : "bg-neutral-300 w-2.5 hover:bg-neutral-400"
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}

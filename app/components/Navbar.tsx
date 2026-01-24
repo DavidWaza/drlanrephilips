@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
   { label: "About", href: "about" },
   { label: "Gallery", href: "gallery" },
   { label: "Contact", href: "contact" },
@@ -15,13 +15,6 @@ const navItems = [
 const Header = () => {
   const [open, setOpen] = useState(false);
 
-  const scrollToBooking = () => {
-    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToServices = () => {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-  };
   return (
     <header className="fixed top-6 left-0 z-50 w-full px-4">
       {/* === GLASS BAR === */}

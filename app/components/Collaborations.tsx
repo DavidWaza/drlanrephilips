@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Replace these paths with your actual logo image paths
 const logos = [
@@ -52,12 +53,14 @@ export default function Collaborations() {
             {logos.map((logo, idx) => (
               <div
                 key={`${logo.name}-${idx}`}
-                className="flex-shrink-0 h-28 w-52 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="flex-shrink-0 h-28 w-52 flex items-center justify-center transition-all duration-300 hover:scale-110 relative"
               >
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.name}
-                  className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  fill
+                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             ))}

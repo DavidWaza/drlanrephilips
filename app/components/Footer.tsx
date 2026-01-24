@@ -182,7 +182,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="font-montserrat text-xs uppercase tracking-[0.2em] text-blue-400 font-semibold mb-6">
+            <h4 className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/70 font-semibold mb-6">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -207,7 +207,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="font-montserrat text-xs uppercase tracking-[0.2em] text-blue-400 font-semibold mb-6">
+            <h4 className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/70 font-semibold mb-6">
               Services
             </h4>
             <ul className="space-y-3">
@@ -232,7 +232,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h4 className="font-montserrat text-xs uppercase tracking-[0.2em] text-blue-400 font-semibold mb-6">
+            <h4 className="font-montserrat text-xs uppercase tracking-[0.2em] text-white/70 font-semibold mb-6">
               Get In Touch
             </h4>
             <ul className="space-y-4">
