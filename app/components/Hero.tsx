@@ -10,25 +10,25 @@ const roles = [
     title: "Result-Focused Mentoring",
     image: "/dr-lanre/hero-1.jpeg",
     ctaText: "Start Your Journey",
-    ctaLink: "#mentoring",
+    ctaLink: "#booking",
   },
   {
     title: "Own Your Impact",
     image: "/dr-lanre/hero-2.jpeg",
     ctaText: "Discover How",
-    ctaLink: "#impact",
+    ctaLink: "#booking",
   },
   {
     title: "Executive Speaker",
     image: "/dr-lanre/hero-3.jpeg",
     ctaText: "Book a Speaking",
-    ctaLink: "#speaking",
+    ctaLink: "#booking",
   },
   {
     title: "Leadership Mentor",
     image: "/dr-lanre/hero-4.jpeg",
     ctaText: "Get Mentorship",
-    ctaLink: "#leadership",
+    ctaLink: "#booking",
   },
 ];
 
@@ -44,6 +44,18 @@ export default function Hero() {
     );
     return () => clearInterval(timer);
   }, []);
+
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -163,6 +175,7 @@ export default function Hero() {
                 <motion.a
                   key={roles[index].ctaText}
                   href={roles[index].ctaLink}
+                  onClick={(e) => handleScroll(e, roles[index].ctaLink)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}

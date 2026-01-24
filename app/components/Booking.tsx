@@ -101,17 +101,39 @@ export default function Booking() {
     if (!selectedType) return;
 
     setIsSubmitting(true);
-    // Simulate form submission - replace with actual API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
 
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setSelectedType(null);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 3000);
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          type: "Booking Request",
+          subject: `Booking Request: ${sessionTypes.find((s) => s.id === selectedType)?.title}`,
+          goals: formData.message, // Mapping message to goals for backward compatibility if needed, or just relying on message
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send booking request");
+      }
+
+      setIsSubmitted(true);
+
+      // Reset after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setSelectedType(null);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

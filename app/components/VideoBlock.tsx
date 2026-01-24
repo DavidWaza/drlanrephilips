@@ -9,6 +9,7 @@ interface VideoBlockProps {
 
 export default function VideoBlock({ youtubeId }: VideoBlockProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const [play, setPlay] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function VideoBlock({ youtubeId }: VideoBlockProps) {
         setPlay(entry.isIntersecting);
       },
       {
-        threshold: 0.6,
+        threshold: 0.5,
       },
     );
 
@@ -27,6 +28,17 @@ export default function VideoBlock({ youtubeId }: VideoBlockProps) {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      const message = play
+        ? '{"event":"command","func":"playVideo","args":""}'
+        : '{"event":"command","func":"pauseVideo","args":""}';
+      iframeRef.current.contentWindow.postMessage(message, "*");
+    }
+  }, [play]);
+
+  if (!youtubeId) return null;
 
   return (
     <section className="relative overflow-hidden py-24">
@@ -88,10 +100,9 @@ export default function VideoBlock({ youtubeId }: VideoBlockProps) {
           className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl"
         >
           <iframe
+            ref={iframeRef}
             className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=${
-              play ? 1 : 0
-            }&mute=1&controls=1&rel=0&playsinline=1`}
+            src={`https://www.youtube.com/embed/${youtubeId}?enablejsapi=1&mute=1&controls=1&rel=0&playsinline=1`}
             title="Mentor Video"
             allow="autoplay; encrypted-media; picture-in-picture"
             allowFullScreen

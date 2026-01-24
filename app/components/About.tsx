@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -95,9 +96,9 @@ export default function About() {
                   text-slate-700
                 "
                 >
-                  Let Dr. Phillips' battle-tested expertise inspire your journey
-                  of self-improvement, team building, and sustainable success.
-                  It is time to gain the perspective of a true mentor.
+                  Let Dr. Lanre Philips battle-tested expertise inspire your
+                  journey of self-improvement, team building, and sustainable
+                  success. It is time to gain the perspective of a true mentor.
                 </p>
               </div>
 
@@ -126,11 +127,12 @@ export default function About() {
               </div>
 
               {/* CTA Button */}
-              <motion.button
-                whileHover={{ scale: 1.02, x: 4 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="
+              <Link href="/about">
+                <motion.button
+                  whileHover={{ scale: 1.02, x: 4 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className="
                   mt-10
                   group
                   relative
@@ -147,23 +149,24 @@ export default function About() {
                   shadow-lg
                   hover:shadow-xl
                 "
-              >
-                <span className="relative z-10">Discover More</span>
-                <motion.span
-                  className="relative z-10"
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1.5,
-                    ease: "easeInOut",
-                  }}
                 >
-                  →
-                </motion.span>
+                  <span className="relative z-10">Discover More</span>
+                  <motion.span
+                    className="relative z-10"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 1.5,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    →
+                  </motion.span>
 
-                {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-slate-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-              </motion.button>
+                  {/* Hover effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-slate-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </div>
