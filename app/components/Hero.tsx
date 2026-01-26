@@ -4,6 +4,7 @@ import { Star, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "@/app/hooks/useIsMobile";
 
 const roles = [
   {
@@ -36,6 +37,7 @@ const INTERVAL = 3600;
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const timer = setInterval(
@@ -60,7 +62,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden flex items-center"
+      className="relative h-full py-24 lg:pt-30 overflow-hidden flex items-center"
     >
       {/* ================= BACKGROUND SYSTEM ================= */}
 
@@ -109,10 +111,16 @@ export default function Hero() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={roles[index].image}
-                initial={{ opacity: 0, scale: 1.03 }}
+                initial={
+                  isMobile ? { opacity: 1 } : { opacity: 0, scale: 1.03 }
+                }
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.9, ease: "easeInOut" }}
+                exit={isMobile ? { opacity: 1 } : { opacity: 0, scale: 0.98 }}
+                transition={
+                  isMobile
+                    ? { duration: 0 }
+                    : { duration: 0.9, ease: "easeInOut" }
+                }
                 className="absolute inset-0"
               >
                 <Image
@@ -141,10 +149,18 @@ export default function Hero() {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={roles[index].title}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={
+                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }
+                  }
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  exit={
+                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }
+                  }
+                  transition={
+                    isMobile
+                      ? { duration: 0 }
+                      : { duration: 0.6, ease: "easeOut" }
+                  }
                   style={{ willChange: "transform, opacity" }}
                   className="
                     absolute inset-0
@@ -177,10 +193,18 @@ export default function Hero() {
                   key={roles[index].ctaText}
                   href={roles[index].ctaLink}
                   onClick={(e) => handleScroll(e, roles[index].ctaLink)}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={
+                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                  }
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  exit={
+                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }
+                  }
+                  transition={
+                    isMobile
+                      ? { duration: 0 }
+                      : { duration: 0.5, ease: "easeOut" }
+                  }
                   style={{ willChange: "transform, opacity" }}
                   className="
                     absolute

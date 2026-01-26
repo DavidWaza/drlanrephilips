@@ -164,3 +164,17 @@
   background-size: 200% 200%;
   animation: gradient 4s ease infinite;
 }
+
+@media (max-width: 767px) {
+  * {
+    transition: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+
+  .animate-float,
+  .animate-float-slow,
+  .animate-gradient {
+    animation: none !important;
+  }
+}

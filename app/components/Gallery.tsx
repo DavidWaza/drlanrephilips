@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Calendar } from "lucide-react";
+import { useIsMobile } from "@/app/hooks/useIsMobile";
 
 /* =========================
    Types
@@ -76,25 +77,12 @@ const events: Event[] = [
 
 const galleryImages = [
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (1).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (3).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (4).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08.jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.09 (2).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.10.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.11 (1).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.11.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12 (1).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12 (2).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12 (3).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.13 (1).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.13 (2).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14 (1).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14 (2).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (1).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (2).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (3).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15.jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.16.jpeg",
 ];
@@ -106,6 +94,7 @@ export default function Gallery() {
   const [activeTab, setActiveTab] = useState<
     "all" | "upcoming" | "past" | "gallery"
   >("all");
+  const isMobile = useIsMobile();
   const [selectedImage, setSelectedImage] = useState<{
     src: string;
     allImages: string[];
@@ -176,12 +165,15 @@ export default function Gallery() {
                   }
                 `}
               >
-                {activeTab === tab.id && (
+                {activeTab === tab.id && !isMobile && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute inset-0 bg-blue-600 rounded-full"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
+                )}
+                {activeTab === tab.id && isMobile && (
+                  <div className="absolute inset-0 bg-blue-600 rounded-full" />
                 )}
                 <span className="relative z-10">{tab.label}</span>
               </button>
@@ -193,10 +185,10 @@ export default function Gallery() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 5 }}
+              initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.3 }}
+              exit={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -5 }}
+              transition={isMobile ? { duration: 0 } : { duration: 0.3 }}
               style={{ willChange: "transform, opacity" }}
             >
               <div className="space-y-24">

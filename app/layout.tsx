@@ -4,6 +4,7 @@ import "./globals.css";
 // import LoadingOverlay from "./components/LoadingOverlay";
 // import { Toaster, toast } from "sonner";
 import Header from "./components/Navbar";
+import MotionProvider from "./components/MotionProvider";
 // import Footer from "./components/Footer";
 
 const inter = Inter({
@@ -38,9 +39,7 @@ export default function RootLayout({
         className={`${inter.variable} ${montserrat.className} ${changaOne.variable} antialiased`}
       >
         <Header />
-        {/* <Toaster richColors /> */}
-        {/* <LoadingOverlay /> */}
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         {/* <Footer /> */}
       </body>
     </html>
