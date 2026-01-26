@@ -71,9 +71,9 @@ export default function TestimonialSlider() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
+      x: direction > 0 ? 20 : -20,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.98,
     }),
     center: {
       x: 0,
@@ -81,14 +81,14 @@ export default function TestimonialSlider() {
       scale: 1,
     },
     exit: (direction: number) => ({
-      x: direction > 0 ? -100 : 100,
+      x: direction > 0 ? -20 : 20,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.98,
     }),
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 overflow-hidden">
+    <section className="relative py-20 bg-linear-to-br from-neutral-50 via-white to-neutral-100 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
@@ -99,10 +99,11 @@ export default function TestimonialSlider() {
         {/* Header */}
         <div className="text-center mb-8">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
+            style={{ willChange: "transform, opacity" }}
           >
             <h2
               className="
@@ -143,6 +144,7 @@ export default function TestimonialSlider() {
                   opacity: { duration: 0.3 },
                   scale: { duration: 0.3 },
                 }}
+                style={{ willChange: "transform, opacity" }}
                 className="relative z-10"
               >
                 {/* Quote */}
@@ -161,7 +163,7 @@ export default function TestimonialSlider() {
                         className="object-cover"
                       />
                     </div>
-                    <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-2">
+                    <div className="absolute -bottom-2 -right-2 bg-linear-to-r from-blue-500 to-purple-500 rounded-full p-2">
                       <svg
                         className="w-5 h-5 text-white"
                         fill="currentColor"
@@ -234,7 +236,7 @@ export default function TestimonialSlider() {
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: INTERVAL / 1000, ease: "linear" }}
-              className="h-full bg-gradient-to-r bg-[#060B18]"
+              className="h-full bg-linear-to-r bg-[#060B18]"
             />
           </div>
         </div>

@@ -62,39 +62,21 @@ export default function AchievementsRecognition() {
       {/* ================= SOPHISTICATED BACKGROUND ================= */}
       <div className="absolute inset-0 -z-10">
         {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950" />
 
         {/* Animated gradient orbs */}
-        <motion.div
-          className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full opacity-30"
+        <div
+          className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full opacity-20"
           style={{
             background:
-              "radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 70%)",
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.4, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
+              "radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%)",
           }}
         />
-        <motion.div
-          className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full opacity-30"
+        <div
+          className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full opacity-20"
           style={{
             background:
-              "radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%)",
-          }}
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
+              "radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 70%)",
           }}
         />
 
@@ -143,7 +125,7 @@ export default function AchievementsRecognition() {
 
           <h2 className="font-changa-one text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight text-white mb-6">
             Achievements That
-            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Define Excellence
             </span>
           </h2>
@@ -176,7 +158,10 @@ export default function AchievementsRecognition() {
                 onHoverEnd={() => setHoveredStat(null)}
                 className="relative group"
               >
-                <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 text-center transition-all duration-500 hover:bg-white/10 hover:border-white/20">
+                <div
+                  className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 text-center transition-all duration-500 hover:bg-white/10 hover:border-white/20"
+                  style={{ willChange: "transform" }}
+                >
                   {/* Hover glow effect */}
                   <AnimatePresence>
                     {hoveredStat === index && (
@@ -184,7 +169,7 @@ export default function AchievementsRecognition() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10"
+                        className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10"
                       />
                     )}
                   </AnimatePresence>
@@ -196,7 +181,7 @@ export default function AchievementsRecognition() {
                         rotate: hoveredStat === index ? 5 : 0,
                       }}
                       transition={{ duration: 0.3 }}
-                      className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 text-blue-400"
+                      className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-xl bg-linear-to-br from-blue-500/20 to-purple-500/20 text-blue-400"
                     >
                       <Icon className="h-5 w-5" />
                     </motion.div>
@@ -241,7 +226,7 @@ export default function AchievementsRecognition() {
                   transition={{ duration: 0.3 }}
                   className={`
                     relative h-full overflow-hidden rounded-3xl
-                    bg-gradient-to-br from-white/10 to-white/5
+                    bg-linear-to-br from-white/10 to-white/5
                     border transition-all duration-500
                     ${
                       isActive
@@ -254,7 +239,7 @@ export default function AchievementsRecognition() {
                   <div
                     className={`
                       absolute inset-0 opacity-0 transition-opacity duration-500
-                      bg-gradient-to-br ${item.accentColor}
+                      bg-linear-to-br ${item.accentColor}
                       ${isActive ? "opacity-10" : "group-hover:opacity-5"}
                     `}
                   />
@@ -268,13 +253,13 @@ export default function AchievementsRecognition() {
                         whileHover={{ rotate: 5, scale: 1.1 }}
                         className={`
                           relative flex h-16 w-16 items-center justify-center rounded-2xl
-                          bg-gradient-to-br ${item.accentColor} shadow-lg
+                          bg-linear-to-br ${item.accentColor} shadow-lg
                         `}
                       >
                         <Icon className="h-7 w-7 text-white" />
                         {/* Glow effect */}
                         <div
-                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.accentColor} blur-xl opacity-50`}
+                          className={`absolute inset-0 rounded-2xl bg-linear-to-br ${item.accentColor} blur-xl opacity-50`}
                         />
                       </motion.div>
 
@@ -293,7 +278,7 @@ export default function AchievementsRecognition() {
                     <span
                       className={`
                         inline-block mb-3 px-3 py-1 rounded-full text-xs font-semibold
-                        bg-gradient-to-r ${item.accentColor} bg-clip-text text-transparent
+                        bg-linear-to-r ${item.accentColor} bg-clip-text text-transparent
                         border border-white/10
                       `}
                     >
@@ -328,7 +313,7 @@ export default function AchievementsRecognition() {
                               className="flex items-start gap-3 text-sm text-slate-300"
                             >
                               <span
-                                className={`mt-1.5 h-1.5 w-1.5 rounded-full bg-gradient-to-r ${item.accentColor} flex-shrink-0`}
+                                className={`mt-1.5 h-1.5 w-1.5 rounded-full bg-linear-to-r ${item.accentColor} shrink-0`}
                               />
                               <span className="font-inter leading-relaxed">
                                 {point}
@@ -362,7 +347,7 @@ export default function AchievementsRecognition() {
 
                   {/* Bottom accent line */}
                   <motion.div
-                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.accentColor}`}
+                    className={`absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r ${item.accentColor}`}
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
@@ -390,7 +375,7 @@ export default function AchievementsRecognition() {
             href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-montserrat text-sm uppercase tracking-wider font-semibold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-shadow duration-300"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-montserrat text-sm uppercase tracking-wider font-semibold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-shadow duration-300"
           >
             Work With Dr. Phillips
             <ChevronRight className="h-4 w-4" />

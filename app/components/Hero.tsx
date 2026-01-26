@@ -141,10 +141,11 @@ export default function Hero() {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={roles[index].title}
-                  initial={{ opacity: 0, y: 28 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -28 }}
+                  exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
+                  style={{ willChange: "transform, opacity" }}
                   className="
                     absolute inset-0
                     font-changa-one
@@ -176,10 +177,11 @@ export default function Hero() {
                   key={roles[index].ctaText}
                   href={roles[index].ctaLink}
                   onClick={(e) => handleScroll(e, roles[index].ctaLink)}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
+                  exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
+                  style={{ willChange: "transform, opacity" }}
                   className="
                     absolute
                     inline-flex items-center gap-3

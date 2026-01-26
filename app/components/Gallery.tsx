@@ -75,14 +75,28 @@ const events: Event[] = [
 ];
 
 const galleryImages = [
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (3).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (4).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08.jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.09 (2).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.10.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.11 (1).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.11.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12 (2).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12 (3).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.16.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.13 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.13 (2).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14 (2).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (2).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (3).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.16.jpeg",
 ];
 
 /* =========================
@@ -179,10 +193,11 @@ export default function Gallery() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
+              exit={{ opacity: 0, y: -5 }}
               transition={{ duration: 0.3 }}
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="space-y-24">
                 {/* =========================
@@ -200,10 +215,11 @@ export default function Gallery() {
                         {upcomingEvents.map((event, i) => (
                           <motion.div
                             key={event.id}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: i * 0.08 }}
+                            style={{ willChange: "transform, opacity" }}
                             onClick={() =>
                               openLightbox(event.images[0], event.images)
                             }
@@ -270,10 +286,11 @@ export default function Gallery() {
                             {pastEvents.map((event, i) => (
                               <motion.div
                                 key={event.id}
-                                initial={{ opacity: 0, scale: 0.95 }}
+                                initial={{ opacity: 0, scale: 0.98 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, margin: "-50px" }}
                                 transition={{ delay: i * 0.06 }}
+                                style={{ willChange: "transform, opacity" }}
                                 onClick={() =>
                                   openLightbox(event.images[0], event.images)
                                 }
@@ -315,10 +332,11 @@ export default function Gallery() {
                           {galleryImages.map((img, i) => (
                             <motion.div
                               key={i}
-                              initial={{ opacity: 0, x: 20 }}
+                              initial={{ opacity: 0, x: 10 }}
                               whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
+                              viewport={{ once: true, margin: "-50px" }}
                               transition={{ delay: i * 0.05 }}
+                              style={{ willChange: "transform, opacity" }}
                               onClick={() => openLightbox(img, galleryImages)}
                               className="relative cursor-pointer rounded-2xl overflow-hidden border border-white/5"
                             >

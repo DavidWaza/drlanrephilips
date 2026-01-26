@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-white">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-blue-50/30" />
 
       {/* Geometric accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
@@ -37,10 +37,11 @@ export default function About() {
               </span>
             </div>
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
             >
               <h2
                 className="
@@ -63,10 +64,11 @@ export default function About() {
           {/* ================= RIGHT: CONTENT ================= */}
           <div className="lg:col-span-7">
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              style={{ willChange: "transform, opacity" }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-slate-200/50 shadow-xl"
             >
               {/* Content text */}
@@ -163,8 +165,7 @@ export default function About() {
                     →
                   </motion.span>
 
-                  {/* Hover effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-slate-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-slate-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                 </motion.button>
               </Link>
             </motion.div>

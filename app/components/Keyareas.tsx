@@ -36,7 +36,7 @@ export default function KeyAreas() {
       {/* ================= BACKGROUND ================= */}
       <div className="absolute inset-0 -z-10">
         {/* Soft neutral gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-neutral-100 to-neutral-200" />
+        <div className="absolute inset-0 bg-linear-to-br from-neutral-50 via-neutral-100 to-neutral-200" />
 
         {/* Gentle highlight shapes */}
         <div className="absolute -top-24 -right-24 h-[380px] w-[380px] rounded-full bg-neutral-300/30 blur-3xl" />
@@ -55,10 +55,11 @@ export default function KeyAreas() {
       <div className="mx-auto max-w-7xl px-6">
         {/* ================= HEADER ================= */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ willChange: "transform, opacity" }}
           className="mx-auto mb-20 max-w-7xl"
         >
           <h2
@@ -83,11 +84,12 @@ export default function KeyAreas() {
             return (
               <motion.div
                 key={area.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -6 }}
+                style={{ willChange: "transform, opacity" }}
                 className="group relative rounded-3xl border border-neutral-300/60 bg-white/80 p-8 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-2xl"
               >
                 {/* Icon */}
