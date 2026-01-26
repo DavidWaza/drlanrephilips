@@ -56,7 +56,7 @@ const sessionTypes = [
     id: "speaking",
     title: "Speaking Engagement",
     description:
-      "Invite Dr. Phillips to inspire your audience at conferences, corporate events, or workshops.",
+      "Invite Dr. Lanre Phillips to inspire your audience at conferences, corporate events, or workshops.",
     duration: "Custom",
     icon: (
       <svg

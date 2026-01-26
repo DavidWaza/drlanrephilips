@@ -92,7 +92,7 @@ export default function BackgroundAndExpertise() {
             </h3>
 
             <p className="font-inter text-sm leading-relaxed text-slate-300">
-              With close to three decades of professional experience, Dr.
+              With close to three decades of professional experience, Dr. Lanre
               Phillips has led and influenced initiatives across FMCG, Banking,
               Telecommunications, and Information Technology—driving operational
               excellence and sustainable transformation.
@@ -114,7 +114,7 @@ export default function BackgroundAndExpertise() {
 
             <p className="font-inter text-sm leading-relaxed text-slate-300">
               Known for aligning strategy with human capital development, Dr.
-              Phillips specializes in Strategy, Operations, HR, and
+              Lanre Phillips specializes in Strategy, Operations, HR, and
               Organizational Development—implementing leadership frameworks,
               talent programs, and cultural transformation initiatives.
             </p>

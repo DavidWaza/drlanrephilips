@@ -14,7 +14,7 @@ export default function AboutPage() {
       <Navbar />
       <main>
         <PageHero
-          title="About Dr. Lanre Philips"
+          title="About Dr. Lanre Phillips"
           breadcrumbs={[{ label: "About", href: "/about" }]}
         />
         <AboutContent />

@@ -10,13 +10,13 @@ const areas = [
     description:
       "Develop a bespoke strategic growth plan tailored to your organization's vision and objectives.",
     details:
-      "Dr. Phillips conducts a thorough assessment and partners with your leadership team to define priorities, KPIs, and an executable roadmap for exponential advancement.",
+      "Dr. Lanre Phillips conducts a thorough assessment and partners with your leadership team to define priorities, KPIs, and an executable roadmap for exponential advancement.",
   },
   {
     title: "Strategy",
     icon: BarChart3,
     description:
-      "Leverage Dr. Phillips' expertise through customized advisory engagements.",
+      "Leverage Dr. Lanre Phillips' expertise through customized advisory engagements.",
     details:
       "From productivity workshops to culture-change initiatives, these consultancy services empower sustainable evolution at both strategic and operational levels.",
   },
@@ -71,8 +71,8 @@ export default function KeyAreas() {
               text-neutral-900
             "
           >
-            How <span className="text-neutral-500">Dr. Phillips</span> Creates
-            Impact
+            How <span className="text-neutral-500">Dr. Lanre Phillips</span>{" "}
+            Creates Impact
           </h2>
         </motion.div>
 

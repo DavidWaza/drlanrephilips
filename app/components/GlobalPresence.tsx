@@ -58,9 +58,9 @@ export default function GlobalPresence() {
           </h2>
           <div className="h-1 w-20 bg-blue-600 rounded-full mx-auto mb-6" />
           <p className="text-slate-400 max-w-2xl mx-auto">
-            From Lagos to London, Dr. Phillips has impacted organizations and
-            leaders across the globe through speaking engagements, consulting,
-            and strategic partnerships.
+            From Lagos to London, Dr. Lanre Phillips has impacted organizations
+            and leaders across the globe through speaking engagements,
+            consulting, and strategic partnerships.
           </p>
         </motion.div>
 

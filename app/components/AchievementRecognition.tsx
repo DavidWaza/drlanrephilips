@@ -377,7 +377,7 @@ export default function AchievementsRecognition() {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-montserrat text-sm uppercase tracking-wider font-semibold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-shadow duration-300"
           >
-            Work With Dr. Phillips
+            Work With Dr. Lanre Phillips
             <ChevronRight className="h-4 w-4" />
           </motion.a>
         </motion.div>

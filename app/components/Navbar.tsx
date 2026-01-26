@@ -35,7 +35,7 @@ const Header = () => {
             href="/"
             className="font-montserrat font-bold tracking-tight text-[#14325A] uppercase text-2xl"
           >
-            lanre philips
+            dr. lanre phillips
           </Link>
 
           {/* DESKTOP NAV */}

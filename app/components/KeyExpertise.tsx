@@ -13,19 +13,19 @@ const expertise = [
   {
     title: "Operational Excellence",
     description:
-      "Committed to excellence, Dr. Phillips implements sound operational and financial strategies that enhance efficiency, improve outcomes, and strengthen long-term organizational performance.",
+      "Committed to excellence, Dr. Lanre Phillips implements sound operational and financial strategies that enhance efficiency, improve outcomes, and strengthen long-term organizational performance.",
     icon: Settings,
   },
   {
     title: "Social Impact & Innovation",
     description:
-      "A champion of societal progress, Dr. Phillips partners with NGOs, startup hubs, and accelerators to foster innovation, entrepreneurship, and scalable social impact.",
+      "A champion of societal progress, Dr. Lanre Phillips partners with NGOs, startup hubs, and accelerators to foster innovation, entrepreneurship, and scalable social impact.",
     icon: Lightbulb,
   },
   {
     title: "HR and Organizational Development",
     description:
-      "Dr. Phillips combines strategic insights with human capital development by leading talent development, organizational restructuring, and leadership initiatives, resulting in enhanced employee engagement, retention, and organizational culture.",
+      "Dr. Lanre Phillips combines strategic insights with human capital development by leading talent development, organizational restructuring, and leadership initiatives, resulting in enhanced employee engagement, retention, and organizational culture.",
     icon: Users,
   },
 ];

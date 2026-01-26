@@ -7,7 +7,7 @@ const recognitions = [
   {
     title: "Board Membership and Academic Impact",
     description:
-      "A notable board member of various organizations, Dr. Phillips provides strategic guidance and insight. His leadership roles underscore his commitment to shaping and guiding impactful initiatives in diverse sectors. Dr Phillips also serves as an adjunct faculty member at the prestigious Enterprise Development Centre of the Lagos Business School.",
+      "A notable board member of various organizations, Dr. Lanre Phillips provides strategic guidance and insight. His leadership roles underscore his commitment to shaping and guiding impactful initiatives in diverse sectors. Dr Lanre Phillips also serves as an adjunct faculty member at the prestigious Enterprise Development Centre of the Lagos Business School.",
     icon: Users,
     category: "Leadership",
   },
@@ -21,7 +21,7 @@ const recognitions = [
   {
     title: "International Affiliations",
     description:
-      "Dr Phillips was Keynote Speaker at the Future of Work Summit held at the prestigious Imperial College, London as well as speaking at the Innovation Africa Conference In Addis Ababa, Ethiopia. His love for golf has him serving as the Director of Welfare and Socials at the IBB International Golf and Country Club.",
+      "Dr Lanre Phillips was Keynote Speaker at the Future of Work Summit held at the prestigious Imperial College, London as well as speaking at the Innovation Africa Conference In Addis Ababa, Ethiopia. His love for golf has him serving as the Director of Welfare and Socials at the IBB International Golf and Country Club.",
     icon: Globe,
     category: "Global",
   },

@@ -105,14 +105,12 @@ export default function ContactForm() {
                     Office
                   </h3>
                   <p className="text-slate-400">
-                    Lagos, Nigeria
-                    <br />
-                    Available for global engagements
+                    2nd Floor, ULO Plaza, Sokode Crescent, Zone 5, Abuja
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-6 group">
+              {/* <div className="flex items-start gap-6 group">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-800/30 group-hover:text-blue-300 transition-all duration-300 border border-blue-800/30">
                   <Phone className="w-5 h-5" />
                 </div>
@@ -122,7 +120,7 @@ export default function ContactForm() {
                   </h3>
                   <p className="text-slate-400">+234 (0) 802 290 6999</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 

@@ -274,10 +274,10 @@ export default function AboutContent() {
                     3 decades across dynamic industries such as FMCG, Banking,
                     Telecommunications, and Information Technology.
                   </span>{" "}
-                  Widely acclaimed for his strategic acumen, Dr. Phillips is a
-                  mastermind in driving organizational growth through the twin
-                  pillars of human capacity development and flawless strategic
-                  implementation.
+                  Widely acclaimed for his strategic acumen, Dr. Lanre Phillips
+                  is a mastermind in driving organizational growth through the
+                  twin pillars of human capacity development and flawless
+                  strategic implementation.
                 </p>
 
                 <p>
@@ -287,7 +287,7 @@ export default function AboutContent() {
                   <span className="font-semibold text-slate-900">
                     TED speaker
                   </span>
-                  , Dr. Phillips not only shares his insights but actively
+                  , Dr. Lanre Phillips not only shares his insights but actively
                   shapes the discourse on leadership sales strategies and
                   innovation amongst other topics. As the CEO/Principal Partner
                   at Elpee Consults, He continues to spearhead transformative

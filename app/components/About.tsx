@@ -31,7 +31,7 @@ export default function About() {
           {/* ================= LEFT: TITLE & STATS ================= */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12" />
+              <div className="h-px w-12 bg-blue-600" />
               <span className="font-montserrat text-xs uppercase tracking-[0.2em] text-blue-600 font-semibold">
                 About Dr. Lanre Phillips
               </span>
@@ -98,7 +98,7 @@ export default function About() {
                   text-slate-700
                 "
                 >
-                  Let Dr. Lanre Philips battle-tested expertise inspire your
+                  Let Dr. Lanre Phillips battle-tested expertise inspire your
                   journey of self-improvement, team building, and sustainable
                   success. It is time to gain the perspective of a true mentor.
                 </p>

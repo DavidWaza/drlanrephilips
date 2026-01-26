@@ -10,7 +10,7 @@ const logos = [
   { name: "Wema Bank", src: "/logos/wema-bank.jpeg" },
   { name: "GAIN", src: "/logos/gain.jpg" },
   { name: "DTM", src: "/logos/DTM.png" },
-  { name: "Elpee Consults", src: "/logos/Elpee-consults.png" },
+  // { name: "Elpee Consults", src: "/logos/Elpee-consults.png" },
   { name: "NCAA", src: "/logos/NCAA.png" },
   { name: "Stanbic", src: "/logos/Stanbic.png" },
   { name: "Evidence Action", src: "/logos/evidence-action.png" },
@@ -63,7 +63,7 @@ export default function Collaborations() {
             {logos.map((logo, idx) => (
               <div
                 key={`${logo.name}-${idx}`}
-                className="flex-shrink-0 h-20 w-44 flex items-center justify-center transition-all duration-300 hover:scale-110 relative grayscale hover:grayscale-0"
+                className="flex-shrink-0 h-20 w-44 flex items-center justify-center transition-all duration-300 hover:scale-110 relative hover:grayscale"
               >
                 <Image
                   src={logo.src}
@@ -78,7 +78,7 @@ export default function Collaborations() {
             {logos.map((logo, idx) => (
               <div
                 key={`${logo.name}-clone-${idx}`}
-                className="flex-shrink-0 h-20 w-44 flex items-center justify-center transition-all duration-300 hover:scale-110 relative grayscale hover:grayscale-0"
+                className="flex-shrink-0 h-20 w-44 flex items-center justify-center transition-all duration-300 hover:scale-110 relative hover:grayscale"
               >
                 <Image
                   src={logo.src}

@@ -14,14 +14,14 @@ const highlights = [
   {
     title: "Two-time TEDx speaker",
     description:
-      "Acknowledged as a thought leader, Dr. Phillips has graced the TEDx stage twice, sharing his expertise and contributing to global conversations on leadership and innovation.",
+      "Acknowledged as a thought leader, Dr. Lanre Phillips has graced the TEDx stage twice, sharing his expertise and contributing to global conversations on leadership and innovation.",
     icon: Mic2,
     year: "Thought Leadership",
   },
   {
     title: "Industry Recognition",
     description:
-      "Acknowledged for his outstanding contributions, Dr. Phillips received special recognition from the Committee of Vice Chancellors of Nigerian universities for his impactful role in the Executive Leadership Development Programme for Vice Chancellors. He has received numerous awards from diverse organisations for his acumen is supporting with growth strategies.",
+      "Acknowledged for his outstanding contributions, Dr. Lanre Phillips received special recognition from the Committee of Vice Chancellors of Nigerian universities for his impactful role in the Executive Leadership Development Programme for Vice Chancellors. He has received numerous awards from diverse organisations for his acumen is supporting with growth strategies.",
     icon: Award,
     year: "Recognition",
   },

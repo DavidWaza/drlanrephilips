@@ -24,7 +24,7 @@ const changaOne = Changa_One({
 });
 
 export const metadata: Metadata = {
-  title: "lanre philips.",
+  title: "lanre phillips.",
   description: "",
 };
 

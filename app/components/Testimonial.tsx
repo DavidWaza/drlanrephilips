@@ -10,33 +10,49 @@ interface Testimonial {
   role: string;
   image: string;
   quote: string;
-  company: string;
+  company?: string;
 }
 
 const testimonials: Testimonial[] = [
   {
-    name: "Jane Doe",
-    role: "CEO",
-    company: "Tech Solutions",
-    image: "/dr-lanre/hero-4.jpeg",
+    name: "Michael Oluwagbemi",
+    role: "Chief Excutive Officer, Presidential Compressed Natural Gas initiative",
+    // company: "Tech Solutions",
+    image: "/dr-lanre/mike.jpg",
     quote:
-      "Dr. Lanre's guidance transformed our leadership approach. His insights are practical, actionable, and truly inspiring. The ROI on our investment has been phenomenal.",
+      "Dr. Lanre's Phillips is a teacher, mentor and facilitator per excellennce. Someone who engagement comes naturally, he is able to connect with his audience at the basic level, annd the gamut of his extraordinary experience comes to bear in ordinary ways that conveys the knnowledge being imparted without impediments.",
   },
   {
-    name: "John Smith",
-    role: "Founder",
-    company: "GrowthHub",
-    image: "/dr-lanre/hero-3.jpeg",
+    name: "Dr Wale Anifowose",
+    role: "MD Flobal Entrepreneurship Network, Nigeria & Managing Director, Enterprise Development Center",
+    // company: "GrowthHub",
+    image: "/dr-lanre/dr-wale-anifowose.jpg",
     quote:
-      "Working with Dr. Lanre Phillips gave our team clarity and strategic direction we never had before. Our productivity increased by 40% in just three months.",
+      "I have worked with Dr. Lanre Phillips for over a decade, he is committed business development expert with a special interest for supporting SMEs across various sectors.",
   },
   {
-    name: "Mary Johnson",
-    role: "HR Director",
-    company: "FinCorp",
-    image: "/dr-lanre/hero-2.jpeg",
+    name: "Sam Obafemi",
+    role: "President SOPCA",
+    company: "SOPCA",
+    image: "/dr-lanre/sam-obafemi.png",
     quote:
-      "The training programs led by Dr. Phillips are phenomenal. Highly recommended for executives and teams alike. A game-changer for our organizational culture.",
+      "Dr. Lanre Phillips is a walking solution. His biggest asset is his use of common experience and daily lifestyle to buttress how to think, adapt and proffeer common sense solutions to life and business problems. He's your go to guy any day.",
+  },
+  {
+    name: "Jimi Tewe",
+    role: "CEO, The Jimi Tewe Company",
+    // company: "SOPCA",
+    image: "/dr-lanre/jimi-tewe.jpeg",
+    quote:
+      "Learning through Dr. Lanre Phillips has been really beneficial to me as a person and an organization.",
+  },
+  {
+    name: "Lamide Johnson",
+    role: "Storyteller, Author, Teacher",
+    // company: "SOPCA",
+    image: "/dr-lanre/lamide-johnson.webp",
+    quote:
+      "Working with Dr. Lanre Phillips was a pacesetter for me. He immediately turned into a mentor as his unnique unnderstanding of business issues and uncommon approach to solving real problems remainns outstanding.",
   },
 ];
 
