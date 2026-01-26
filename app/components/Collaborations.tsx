@@ -9,6 +9,15 @@ const logos = [
   { name: "MTN", src: "/logos/mtn.jpg" },
   { name: "Wema Bank", src: "/logos/wema-bank.jpeg" },
   { name: "GAIN", src: "/logos/gain.jpg" },
+  { name: "DTM", src: "/logos/DTM.png" },
+  { name: "Elpee Consults", src: "/logos/Elpee-consults.png" },
+  { name: "NCAA", src: "/logos/NCAA.png" },
+  { name: "Stanbic", src: "/logos/Stanbic.png" },
+  { name: "Evidence Action", src: "/logos/evidence-action.png" },
+  { name: "NEITI", src: "/logos/neiti.png" },
+  { name: "Ventures Park", src: "/logos/ventures-park.png" },
+  { name: "YouWin", src: "/logos/youwin.png" },
+  { name: "Zenith Medica", src: "/logos/zenith-medica.png" },
   { name: "Enterprise Development Center", src: "/logos/edc-1.webp" },
 ];
 
@@ -48,23 +57,43 @@ export default function Collaborations() {
         </motion.div>
 
         {/* Marquee */}
-        <div className="relative overflow-hidden">
-          <div className="flex flex-wrap justify-center gap-8 items-center">
+        <div className="relative mt-20 overflow-hidden">
+          <div className="flex w-max animate-marquee gap-0 items-center">
+            {/* First set of logos */}
             {logos.map((logo, idx) => (
               <div
                 key={`${logo.name}-${idx}`}
-                className="flex-shrink-0 h-28 w-52 flex items-center justify-center transition-all duration-300 hover:scale-110 relative"
+                className="flex-shrink-0 h-20 w-44 flex items-center justify-center transition-all duration-300 hover:scale-110 relative grayscale hover:grayscale-0"
               >
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   fill
-                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 200px"
+                />
+              </div>
+            ))}
+            {/* Duplicate set of logos for seamless loop */}
+            {logos.map((logo, idx) => (
+              <div
+                key={`${logo.name}-clone-${idx}`}
+                className="flex-shrink-0 h-20 w-44 flex items-center justify-center transition-all duration-300 hover:scale-110 relative grayscale hover:grayscale-0"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 200px"
                 />
               </div>
             ))}
           </div>
+
+          {/* Gradient Masks for fade effect */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-linear-to-r from-neutral-200 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-linear-to-l from-neutral-200 to-transparent z-10" />
         </div>
       </div>
 

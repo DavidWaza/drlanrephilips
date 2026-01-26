@@ -168,13 +168,28 @@
 @media (max-width: 767px) {
   * {
     transition: none !important;
-    animation-duration: 0s !important;
-    animation-delay: 0s !important;
   }
 
   .animate-float,
   .animate-float-slow,
   .animate-gradient {
     animation: none !important;
+  }
+
+  /* Allow marquee to move on mobile as it's a core feature, or keep it stopped if requested */
+  /* If the user wants it to move, we omit it from here */
+}
+
+/* Marquee utility if Tailwind theme isn't picking it up correctly */
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
