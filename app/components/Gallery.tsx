@@ -3,119 +3,397 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 
-const images = [
-  "/dr-lanre/hero-1.jpeg",
-  "/dr-lanre/hero-2.jpeg",
-  "/dr-lanre/hero-3.jpeg",
-  "/dr-lanre/hero-4.jpeg",
-  "/dr-lanre/about.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.10.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (3).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.16.jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (1).jpeg",
-  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (3).jpeg",
+/* =========================
+   Types
+========================= */
+type Event = {
+  id: string;
+  name: string;
+  date: string;
+  description?: string;
+  location?: string;
+  images: string[];
+};
+
+/* =========================
+   Data
+========================= */
+const events: Event[] = [
+  {
+    id: "upcoming-1",
+    name: "Investors Connect",
+    date: "March 2026",
+    description: "",
+    location: "London, UK",
+    images: ["/dr-lanre/investors-connect.jpeg"],
+  },
+  // {
+  //   id: "upcoming-2",
+  //   name: "Executive Coaching Masterclass",
+  //   date: "2026-02-28",
+  //   description: "Intensive coaching session for senior executives",
+  //   images: ["/dr-lanre/hero-4.jpeg", "/dr-lanre/about.jpeg"],
+  // },
+  {
+    id: "past-1",
+    name: "Sell Smart, Close Big",
+    date: "2026-01-24",
+    images: ["/dr-lanre/sell-smart.jpeg"],
+  },
+  {
+    id: "past-2",
+    name: "Lagos Business School",
+    date: "2025-12-10",
+    images: ["/dr-lanre/lagos-business-school.jpg"],
+  },
+  {
+    id: "past-3",
+    name: "British Council",
+    date: "2025-11-20",
+    images: ["/dr-lanre/british-council.jpg"],
+  },
+  {
+    id: "past-4",
+    name: "National Youth Entrepreneurship Summit",
+    date: "2025-11-20",
+    images: ["/dr-lanre/national-youth-entr-summit.jpg"],
+  },
+  {
+    id: "past-5",
+    name: "African Women Entrepreneurship Program",
+    date: "2025-11-20",
+    images: ["/dr-lanre/african-women-entr-program.jpg"],
+  },
+  {
+    id: "past-6",
+    name: "The Mandela Washington Fellowship Association",
+    date: "2025-11-20",
+    images: ["/dr-lanre/mandela-assoc.jpg"],
+  },
+];
+
+const galleryImages = [
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.08 (4).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.09 (2).jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.11.jpeg",
   "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.12.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.16.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15.jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.15 (1).jpeg",
+  "/dr-lanre/WhatsApp Image 2026-01-17 at 20.24.14.jpeg",
 ];
 
+/* =========================
+   Component
+========================= */
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<
+    "all" | "upcoming" | "past" | "gallery"
+  >("all");
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    allImages: string[];
+    index: number;
+  } | null>(null);
 
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedImage !== null) {
-      setSelectedImage((prev) =>
-        prev === images.length - 1 ? 0 : (prev as number) + 1,
-      );
-    }
+  const today = new Date().toISOString().split("T")[0];
+  const upcomingEvents = events.filter((e) => e.date >= today);
+  const pastEvents = events.filter((e) => e.date < today);
+
+  const openLightbox = (src: string, allImages: string[]) => {
+    setSelectedImage({
+      src,
+      allImages,
+      index: allImages.indexOf(src),
+    });
   };
 
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedImage !== null) {
-      setSelectedImage((prev) =>
-        prev === 0 ? images.length - 1 : (prev as number) - 1,
-      );
-    }
+  const navigate = (direction: "next" | "prev") => {
+    if (!selectedImage) return;
+    const total = selectedImage.allImages.length;
+    const index =
+      direction === "next"
+        ? (selectedImage.index + 1) % total
+        : (selectedImage.index - 1 + total) % total;
+
+    setSelectedImage({
+      ...selectedImage,
+      src: selectedImage.allImages[index],
+      index,
+    });
   };
+
+  const formatDate = (date: string) =>
+    new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+
+  const tabs = [
+    { id: "all", label: "All" },
+    { id: "upcoming", label: "Upcoming Events" },
+    { id: "past", label: "Past Events" },
+    { id: "gallery", label: "Photo Gallery" },
+  ];
 
   return (
-    <section className="py-24 md:py-12 bg-slate-950 min-h-screen">
+    <section className="bg-slate-950 min-h-screen">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Masonry Grid */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {images.map((src, index) => (
+        {/* TABS SELECTOR */}
+        <div className="flex justify-center mb-20">
+          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() =>
+                  setActiveTab(
+                    tab.id as "all" | "upcoming" | "past" | "gallery",
+                  )
+                }
+                className={`
+                  relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
+                  ${
+                    activeTab === tab.id
+                      ? "text-white"
+                      : "text-slate-400 hover:text-white"
+                  }
+                `}
+              >
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-blue-600 rounded-full"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-24">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-2xl"
-              onClick={() => setSelectedImage(index)}
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="relative w-full">
-                <Image
-                  src={src}
-                  alt={`Gallery image ${index + 1}`}
-                  width={600}
-                  height={800}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              <div className="space-y-24">
+                {/* =========================
+                    Upcoming Events
+                ========================= */}
+                {(activeTab === "all" || activeTab === "upcoming") &&
+                  upcomingEvents.length > 0 && (
+                    <div>
+                      <SectionHeader
+                        title="Upcoming Events"
+                        accent="from-blue-500 to-cyan-400"
+                      />
+
+                      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                        {upcomingEvents.map((event, i) => (
+                          <motion.div
+                            key={event.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.08 }}
+                            onClick={() =>
+                              openLightbox(event.images[0], event.images)
+                            }
+                            className="group cursor-pointer rounded-3xl overflow-hidden
+                                       bg-white/5 backdrop-blur-xl
+                                       border border-white/10
+                                       hover:border-blue-500/40
+                                       hover:-translate-y-1
+                                       transition-all duration-300"
+                          >
+                            <div className="relative aspect-[16/10]">
+                              <Image
+                                src={event.images[0]}
+                                alt={event.name}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+
+                            <div className="p-6">
+                              <h3 className="font-changa-one text-xl text-white mb-2">
+                                {event.name}
+                              </h3>
+
+                              <div className="flex items-center justify-between text-sm mb-3">
+                                <span className="flex items-center gap-2 text-blue-400">
+                                  <Calendar size={16} />
+                                  {formatDate(event.date)}
+                                </span>
+                                <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-400">
+                                  Upcoming
+                                </span>
+                              </div>
+
+                              {event.description && (
+                                <p className="text-slate-400 text-sm line-clamp-2">
+                                  {event.description}
+                                </p>
+                              )}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                {/* =========================
+                    Past Events + Gallery
+                ========================= */}
+                {(activeTab === "all" ||
+                  activeTab === "past" ||
+                  activeTab === "gallery") && (
+                  <div className="grid gap-16 lg:grid-cols-2">
+                    {/* Past Events */}
+                    {(activeTab === "all" || activeTab === "past") &&
+                      pastEvents.length > 0 && (
+                        <div>
+                          <SectionHeader
+                            title="Past Events"
+                            accent="from-purple-500 to-fuchsia-400"
+                          />
+
+                          <div className="grid grid-cols-2 gap-6">
+                            {pastEvents.map((event, i) => (
+                              <motion.div
+                                key={event.id}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.06 }}
+                                onClick={() =>
+                                  openLightbox(event.images[0], event.images)
+                                }
+                                className="cursor-pointer rounded-2xl overflow-hidden
+                                           bg-slate-900/50 hover:bg-slate-900/80
+                                           transition-colors"
+                              >
+                                <div className="relative aspect-4/3">
+                                  <Image
+                                    src={event.images[0]}
+                                    alt={event.name}
+                                    fill
+                                    className="object-cover"
+                                  />
+                                </div>
+                                <div className="p-4">
+                                  <p className="text-white text-sm font-changa-one line-clamp-2">
+                                    {event.name}
+                                  </p>
+                                  <span className="text-xs text-slate-400">
+                                    {formatDate(event.date)}
+                                  </span>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                    {/* Gallery */}
+                    {(activeTab === "all" || activeTab === "gallery") && (
+                      <div>
+                        <SectionHeader
+                          title="Gallery"
+                          accent="from-amber-400 to-orange-500"
+                        />
+
+                        <div className="grid grid-cols-2 gap-6">
+                          {galleryImages.map((img, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: 20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: i * 0.05 }}
+                              onClick={() => openLightbox(img, galleryImages)}
+                              className="relative cursor-pointer rounded-2xl overflow-hidden border border-white/5"
+                            >
+                              <div className="relative aspect-[4/3]">
+                                <Image
+                                  src={img}
+                                  alt="Gallery image"
+                                  fill
+                                  className="object-cover hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-colors" />
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
-          ))}
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* =========================
+          Lightbox
+      ========================= */}
       <AnimatePresence>
-        {selectedImage !== null && (
+        {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4"
             onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm
+                       flex items-center justify-center p-4"
           >
             <button
-              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              className="absolute top-6 right-6 text-white/70 hover:text-white"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
             </button>
 
             <button
-              className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors p-2"
-              onClick={handlePrev}
+              className="absolute left-6 text-white/70 hover:text-white"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("prev");
+              }}
             >
               <ChevronLeft size={40} />
             </button>
 
             <button
-              className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors p-2"
-              onClick={handleNext}
+              className="absolute right-6 text-white/70 hover:text-white"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("next");
+              }}
             >
               <ChevronRight size={40} />
             </button>
 
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-5xl max-h-[85vh] w-full h-full flex items-center justify-center"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl h-[80vh]"
             >
               <Image
-                src={images[selectedImage]}
-                alt="Gallery preview"
+                src={selectedImage.src}
+                alt="Preview"
                 fill
                 className="object-contain"
                 priority
@@ -125,5 +403,19 @@ export default function Gallery() {
         )}
       </AnimatePresence>
     </section>
+  );
+}
+
+/* =========================
+   Section Header Component
+========================= */
+function SectionHeader({ title, accent }: { title: string; accent: string }) {
+  return (
+    <div className="mb-10">
+      <h2 className="font-changa-one text-3xl md:text-4xl text-white mb-3">
+        {title}
+      </h2>
+      <div className={`h-1 w-28 rounded-full bg-gradient-to-r ${accent}`} />
+    </div>
   );
 }

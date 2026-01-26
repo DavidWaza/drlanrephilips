@@ -8,7 +8,7 @@ export default function GalleryPage() {
     <>
       <Navbar />
       <PageHero
-        title="Gallery"
+        title="Events & Gallery"
         breadcrumbs={[{ label: "Gallery", href: "/gallery" }]}
       />
       <main>

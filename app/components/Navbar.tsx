@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "about" },
-  { label: "Gallery", href: "gallery" },
-  { label: "Contact", href: "contact" },
+  { label: "About", href: "/about" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Header = () => {
@@ -41,15 +41,18 @@ const Header = () => {
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <motion.a
+              <motion.div
                 key={item.label}
-                href={item.href}
                 whileHover={{ y: -3 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="text-sm uppercase font-bold text-[#14325A]/80 hover:text-[#14325A]"
               >
-                {item.label}
-              </motion.a>
+                <Link
+                  href={item.href}
+                  className="text-sm uppercase font-bold text-[#14325A]/80 hover:text-[#14325A]"
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
             ))}
           </nav>
 
@@ -85,10 +88,8 @@ const Header = () => {
           >
             <nav className="flex flex-col gap-4">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.div
                   key={item.label}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
@@ -97,14 +98,20 @@ const Header = () => {
                     stiffness: 250,
                     damping: 18,
                   }}
-                  className="
-                    text-base font-medium
-                    text-[#14325A]
-                    py-2
-                  "
                 >
-                  {item.label}
-                </motion.a>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="
+                      text-base font-medium
+                      text-[#14325A]
+                      py-2
+                      block
+                    "
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

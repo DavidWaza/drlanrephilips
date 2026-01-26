@@ -136,15 +136,7 @@ export async function POST(request: Request) {
       ${subject ? `<p><strong>Subject:</strong> ${String(subject)}</p>` : ""}
       <p><strong>Message:</strong></p>
       <p>${String(message).replace(/\n/g, "<br>")}</p>
-      
-      ${jobrole ? `<p><strong>Role:</strong> ${String(jobrole)}</p>` : ""}
-      ${company ? `<p><strong>Company:</strong> ${String(company)}</p>` : ""}
-      ${jobDescription ? `<p><strong>Job description:</strong> ${String(jobDescription)}</p>` : ""}
       ${goals ? `<p><strong>Goals:</strong> ${String(goals)}</p>` : ""}
-      
-      <h3>Attachments</h3>
-      ${attachmentsListHtml}
-      <p>If you have trouble downloading attachments from this email, reply to this message to request a direct link.</p>
     `;
 
     // Build a plaintext alternative
@@ -152,7 +144,8 @@ export async function POST(request: Request) {
 
     console.log("Received form submission:", { type, name, email, subject });
 
-    const recipientEmail = process.env.CONTACT_EMAIL || "info@offerprep.net";
+    const recipientEmail =
+      process.env.CONTACT_EMAIL || "idemetoemediong2022@gmail.com";
 
     const sendPayload = {
       from: "Dr. Lanre Portfolio <onboarding@resend.dev>",
