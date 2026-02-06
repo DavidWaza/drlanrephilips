@@ -104,7 +104,10 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <section className="relative py-20 bg-linear-to-br from-neutral-50 via-white to-neutral-100 overflow-hidden">
+    <section
+      id="testimonials"
+      className="relative py-20 bg-linear-to-br from-neutral-50 via-white to-neutral-100 overflow-hidden"
+    >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>

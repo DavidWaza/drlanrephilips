@@ -32,7 +32,7 @@ const areas = [
 
 export default function KeyAreas() {
   return (
-    <section className="relative overflow-hidden py-28">
+    <section id="expertise" className="relative overflow-hidden py-28">
       {/* ================= BACKGROUND ================= */}
       <div className="absolute inset-0 -z-10">
         {/* Soft neutral gradient */}

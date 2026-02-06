@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const footerLinks = {
   quickLinks: [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Expertise", href: "#expertise" },
     { name: "Testimonials", href: "#testimonials" },
@@ -253,7 +253,7 @@ export default function Footer() {
 
             {/* CTA Button */}
             <motion.a
-              href="#contact"
+              href="#booking"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm font-montserrat uppercase tracking-wider rounded-full hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/20"
