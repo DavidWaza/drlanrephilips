@@ -30,14 +30,15 @@ type Event = {
    Data
 ========================= */
 const events: Event[] = [
-  {
-    id: "upcoming-1",
-    name: "Investors Connect",
-    date: "March 2026",
-    description: "",
-    location: "London, UK",
-    images: ["/dr-lanre/investors-connect.jpeg"],
-  },
+  // No upcoming events right now — uncomment when scheduling returns.
+  // {
+  //   id: "upcoming-1",
+  //   name: "Investors Connect",
+  //   date: "March 2026",
+  //   description: "",
+  //   location: "London, UK",
+  //   images: ["/dr-lanre/investors-connect.jpeg"],
+  // },
   // {
   //   id: "upcoming-2",
   //   name: "Executive Coaching Masterclass",
@@ -87,9 +88,9 @@ const events: Event[] = [
    Component
 ========================= */
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState<
-    "all" | "upcoming" | "past" | "gallery"
-  >("all");
+  const [activeTab, setActiveTab] = useState<"all" | "past" | "gallery">(
+    "all",
+  );
   const isMobile = useIsMobile();
   const [selectedImage, setSelectedImage] = useState<{
     src: string;
@@ -98,7 +99,7 @@ export default function Gallery() {
   } | null>(null);
 
   const today = new Date().toISOString().split("T")[0];
-  const upcomingEvents = events.filter((e) => e.date >= today);
+  // const upcomingEvents = events.filter((e) => e.date >= today);
   const pastEvents = events.filter((e) => e.date < today);
 
   const openLightbox = (src: string, allImages: string[]) => {
@@ -133,7 +134,7 @@ export default function Gallery() {
 
   const tabs = [
     { id: "all", label: "All" },
-    { id: "upcoming", label: "Upcoming Events" },
+    // { id: "upcoming", label: "Upcoming Events" },
     { id: "past", label: "Past Events" },
     { id: "gallery", label: "Photo Gallery" },
   ];
@@ -148,9 +149,7 @@ export default function Gallery() {
               <button
                 key={tab.id}
                 onClick={() =>
-                  setActiveTab(
-                    tab.id as "all" | "upcoming" | "past" | "gallery",
-                  )
+                  setActiveTab(tab.id as "all" | "past" | "gallery")
                 }
                 className={`
                   relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
@@ -189,8 +188,9 @@ export default function Gallery() {
             >
               <div className="space-y-24">
                 {/* =========================
-                    Upcoming Events
+                    Upcoming Events (disabled — no scheduled events)
                 ========================= */}
+                {/*
                 {(activeTab === "all" || activeTab === "upcoming") &&
                   upcomingEvents.length > 0 && (
                     <div>
@@ -253,6 +253,7 @@ export default function Gallery() {
                       </div>
                     </div>
                   )}
+                */}
 
                 {/* =========================
                     Past Events (posters) + Photo gallery
@@ -406,16 +407,17 @@ export default function Gallery() {
 /* =========================
    Section headers
 ========================= */
-function SectionHeader({ title, accent }: { title: string; accent: string }) {
-  return (
-    <div className="mb-10">
-      <h2 className="font-changa-one text-3xl md:text-4xl text-white mb-3">
-        {title}
-      </h2>
-      <div className={`h-1 w-28 rounded-full bg-gradient-to-r ${accent}`} />
-    </div>
-  );
-}
+// Used when Upcoming Events block is re-enabled.
+// function SectionHeader({ title, accent }: { title: string; accent: string }) {
+//   return (
+//     <div className="mb-10">
+//       <h2 className="font-changa-one text-3xl md:text-4xl text-white mb-3">
+//         {title}
+//       </h2>
+//       <div className={`h-1 w-28 rounded-full bg-gradient-to-r ${accent}`} />
+//     </div>
+//   );
+// }
 
 function PastEventsPostersHeader() {
   return (

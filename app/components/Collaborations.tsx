@@ -19,6 +19,8 @@ const logos = [
   { name: "YouWin", src: "/logos/youwin.png" },
   { name: "Zenith Medica", src: "/logos/zenith-medica.png" },
   { name: "Enterprise Development Center", src: "/logos/edc-1.webp" },
+  { name: "Nigerian Federation", src: "/logos/niger.png" },
+  { name: "Hewlett packard", src: "/logos/hp.png" },
 ];
 
 export default function Collaborations() {

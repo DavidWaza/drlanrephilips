@@ -20,7 +20,7 @@ const roles = [
     ctaLink: "#booking",
   },
   {
-    title: "Executive Speaker",
+    title: "Leadership Speaker",
     image: "/dr-lanre/hero-3.jpeg",
     ctaText: "Book a Speaking",
     ctaLink: "#booking",

@@ -36,10 +36,7 @@ export default function PhotoGallery({
               <h2 className="font-changa-one text-2xl md:text-3xl text-white">
                 Moments & candids
               </h2>
-              <p className="text-slate-400 text-sm mt-1 max-w-md">
-                Photos from <span className="text-slate-300">public/dr-lanre</span>—informal
-                shots from sessions and events (not the poster grid).
-              </p>
+             
             </div>
           </div>
         </div>
