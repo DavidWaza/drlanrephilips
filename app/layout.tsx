@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat, Changa_One } from "next/font/google";
 import "./globals.css";
-// import LoadingOverlay from "./components/LoadingOverlay";
-// import { Toaster, toast } from "sonner";
 import Header from "./components/Navbar";
+import Footer from "./components/Footer";
 import MotionProvider from "./components/MotionProvider";
-// import Footer from "./components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -40,7 +38,7 @@ export default function RootLayout({
       >
         <Header />
         <MotionProvider>{children}</MotionProvider>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

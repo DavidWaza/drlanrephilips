@@ -1,7 +1,6 @@
 import About from "./components/About";
 import Booking from "./components/Booking";
 import Collaborations from "./components/Collaborations";
-import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import KeyAchievement from "./components/KeyAchievement";
 import KeyAreas from "./components/Keyareas";
@@ -25,7 +24,6 @@ export default function Home() {
       <Collaborations />
       <Testimonial />
       <SocialConnect />
-      <Footer />
     </main>
   );
 }

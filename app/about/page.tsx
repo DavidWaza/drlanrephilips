@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PageHero from "../components/PageHero";
 import AboutContent from "../components/AboutContent";
@@ -24,7 +23,6 @@ export default function AboutPage() {
         <NotableRecognition />
         <Collaborations />
       </main>
-      <Footer />
     </>
   );
 }

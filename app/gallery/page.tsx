@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import Gallery from "../components/Gallery";
-import Footer from "../components/Footer";
 import PageHero from "../components/PageHero";
 
 export default function GalleryPage() {
@@ -14,7 +13,6 @@ export default function GalleryPage() {
       <main>
         <Gallery />
       </main>
-      <Footer />
     </>
   );
 }

@@ -2,8 +2,6 @@ import fs from "fs";
 import path from "path";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Minimal file-like shape from FormData's File/Blob in Node
 type FileLike = {
   name?: string;
@@ -26,12 +24,17 @@ async function fileToAttachment(file: FileLike) {
 
 export async function POST(request: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
       return Response.json(
         { error: "RESEND_API_KEY not configured" },
         { status: 500 },
       );
     }
+
+    // Construct only when handling a request so `next build` does not load
+    // Resend without a key (Resend throws if the key is missing at init).
+    const resend = new Resend(apiKey);
 
     const MAX_ATTACHMENT_BYTES =
       Number(process.env.MAX_ATTACHMENT_BYTES) || 8 * 1024 * 1024; // 8MB default

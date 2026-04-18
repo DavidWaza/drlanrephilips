@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import PageHero from "../components/PageHero";
 import ContactForm from "../components/ContactForm";
 import GlobalPresence from "../components/GlobalPresence";
-import Footer from "../components/Footer";
 
 export default function ContactPage() {
   return (
@@ -16,7 +15,6 @@ export default function ContactPage() {
         <ContactForm />
         <GlobalPresence />
       </main>
-      <Footer />
     </>
   );
 }

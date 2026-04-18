@@ -14,15 +14,27 @@ type Location = {
 type Continent = {
   name: string;
   locations: Location[];
+  /** Shown under the region title (e.g. Nigeria states note) */
+  subtitle?: string;
 };
 
 const continents: Continent[] = [
   {
     name: "Africa",
     locations: [
-      { name: "Lagos", x: 46, y: 45, type: "HQ" },
       { name: "Addis Ababa", x: 52, y: 48, type: "Event" },
       { name: "Johannesburg", x: 49, y: 65, type: "Event" },
+    ],
+  },
+  {
+    name: "Nigeria",
+    subtitle: "Popular states visited (sample footprint)",
+    locations: [
+      { name: "Lagos State", x: 45.6, y: 46.1, type: "Event" },
+      { name: "FCT (Abuja)", x: 48.1, y: 43.6, type: "HQ" },
+      { name: "Rivers State", x: 47.9, y: 47.3, type: "Event" },
+      { name: "Oyo State", x: 44.7, y: 45.4, type: "Event" },
+      { name: "Kano State", x: 47.4, y: 40.9, type: "Event" },
     ],
   },
   {
@@ -124,7 +136,7 @@ export default function GlobalPresence() {
             {continents.map((continent) =>
               continent.locations.map((loc, index) => (
                 <motion.div
-                  key={loc.name}
+                  key={`${continent.name}-${loc.name}`}
                   className="absolute"
                   style={{ left: `${loc.x}%`, top: `${loc.y}%` }}
                   initial={{ scale: 0, opacity: 0 }}
@@ -199,7 +211,11 @@ export default function GlobalPresence() {
                 onMouseEnter={() => setActiveContinent(continent.name)}
                 onMouseLeave={() => setActiveContinent(null)}
               >
-                <div className="flex items-center justify-between mb-4">
+                <div
+                  className={`flex items-center justify-between ${
+                    continent.subtitle ? "mb-2" : "mb-4"
+                  }`}
+                >
                   <h3
                     className={`text-xl font-semibold ${
                       activeContinent === continent.name
@@ -209,15 +225,22 @@ export default function GlobalPresence() {
                   >
                     {continent.name}
                   </h3>
-                  <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/5 text-slate-400 border border-white/5">
-                    {continent.locations.length} Locations
+                  <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/5 text-slate-400 border border-white/5 shrink-0">
+                    {continent.name === "Nigeria"
+                      ? `${continent.locations.length} States`
+                      : `${continent.locations.length} Locations`}
                   </span>
                 </div>
+                {continent.subtitle ? (
+                  <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+                    {continent.subtitle}
+                  </p>
+                ) : null}
 
                 <ul className="space-y-3">
                   {continent.locations.map((loc) => (
                     <li
-                      key={loc.name}
+                      key={`${continent.name}-${loc.name}`}
                       className="flex items-center gap-3 text-slate-400 group"
                       onMouseEnter={() => setActiveLocation(loc.name)}
                       onMouseLeave={() => setActiveLocation(null)}
