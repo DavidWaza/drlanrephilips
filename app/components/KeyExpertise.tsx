@@ -19,7 +19,7 @@ const expertise = [
   {
     title: "Social Impact & Innovation",
     description:
-      "A champion of societal progress, Dr. Lanre Phillips partners with NGOs, startup hubs, and accelerators to foster innovation, entrepreneurship, and scalable social impact.",
+      "A driving force behind transformative social advancement, Dr. Lanre Phillips collaborates with NGOs, startup ecosystems, and innovation accelerators to catalyze entrepreneurship, scale impact-driven ventures, and deliver sustainable, system-level",
     icon: Lightbulb,
   },
   {

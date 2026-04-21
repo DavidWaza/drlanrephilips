@@ -133,7 +133,7 @@ export default function TestimonialSlider() {
               text-neutral-900
             "
             >
-              What <span className="text-neutral-500">People Say</span>
+            Testimonials
             </h2>
             <p className="text-lg text-neutral-600 max-w-2xl mx-auto mt-2">
               Hear from leaders who&apos;ve transformed their organizations with

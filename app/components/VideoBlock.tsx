@@ -102,7 +102,7 @@ export default function VideoBlock({ youtubeId }: VideoBlockProps) {
           <iframe
             ref={iframeRef}
             className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube.com/embed/${youtubeId}?enablejsapi=1&mute=1&controls=1&rel=0&playsinline=1`}
+            // src={`https://www.youtube.com/embed/${youtubeId}?enablejsapi=1&mute=1&controls=1&rel=0&playsinline=1`}
             title="Mentor Video"
             allow="autoplay; encrypted-media; picture-in-picture"
             allowFullScreen

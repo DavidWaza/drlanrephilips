@@ -98,7 +98,7 @@ export default function About() {
                   text-slate-700
                 "
                 >
-                  Let Dr. Lanre Phillips battle-tested expertise inspire your
+                  Let Dr. Lanre Phillips' battle-tested expertise inspire your
                   journey of self-improvement, team building, and sustainable
                   success. It is time to gain the perspective of a true mentor.
                 </p>

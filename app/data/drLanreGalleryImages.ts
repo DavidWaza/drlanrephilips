@@ -3,7 +3,6 @@
  * Regenerate: `node scripts/list-dr-lanre-images.mjs --write`
  */
 export const DR_LANRE_GALLERY_IMAGES: string[] = [
-  "/dr-lanre/about.jpeg",
   "/dr-lanre/hero-1.jpeg",
   "/dr-lanre/hero-2.jpeg",
   "/dr-lanre/hero-3.jpeg",
