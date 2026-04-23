@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import { useIsMobile } from "@/app/hooks/useIsMobile";
 const roles = [
   {
     title: "Result-Focused Mentoring",
-    image: "/dr-lanre/dl-1.jpeg",
+    image: "/dr-lanre/dl-8.jpeg",
     ctaText: "Start Your Journey",
     ctaLink: "#booking",
   },
@@ -62,178 +62,188 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-full py-24 lg:pt-30 overflow-hidden flex items-center"
+      className="relative overflow-hidden flex items-center pb-20 pt-32 sm:pb-24 md:py-24 lg:py-28 lg:min-h-[min(100vh,56rem)]"
     >
-      {/* ================= BACKGROUND SYSTEM ================= */}
-
-      {/* 1. Animated monochrome gradient */}
+      {/* Background */}
       <motion.div
-        className="absolute inset-0"
+        className="absolute inset-0 "
         animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
         transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
         style={{
           backgroundImage: `
             linear-gradient(
-              120deg,
-              #020617,
-              #020617,
-              #0b1220,
-              #020617
+              125deg,
+              #020617 0%,
+              #0f172a 45%,
+              #020617 100%
             )
           `,
-          backgroundSize: "300% 300%",
+          backgroundSize: "280% 280%",
         }}
       />
-
-      {/* 2. Subtle radial pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.35]"
+        className="absolute inset-0 opacity-[0.3] "
         style={{
           backgroundImage: `
             radial-gradient(
               circle at 1px 1px,
-              rgba(255,255,255,0.08) 1px,
+              rgba(255,255,255,0.07) 1px,
               transparent 0
             )
           `,
           backgroundSize: "32px 32px",
         }}
       />
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950/80 via-transparent to-slate-950/90" />
+      <div className="pointer-events-none absolute -top-40 right-0 h-[420px] w-[420px] rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 -left-32 h-[320px] w-[320px] rounded-full bg-slate-400/5 blur-3xl" />
 
-      {/* 3. Vignette / depth overlay */}
-      <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/10 to-black/40" />
-
-      {/* ================= CONTENT ================= */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* ========== IMAGE SLIDER (full photo: contain + letterbox; desktop stays left) ========== */}
-          <div
-            className="
-              order-2 lg:order-1
-              relative w-full
-              min-h-[260px] h-[min(52vh,420px)] sm:h-[min(58vh,480px)] md:h-[min(62vh,540px)] lg:h-[min(72vh,600px)]
-              rounded-3xl overflow-hidden border border-white/10
-              bg-[radial-gradient(ellipse_at_50%_40%,rgba(30,41,59,0.9),#020617_70%)]
-              shadow-[0_30px_80px_rgba(0,0,0,0.45)]
-            "
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={roles[index].image}
-                initial={
-                  isMobile ? { opacity: 1 } : { opacity: 0, scale: 1.02 }
-                }
-                animate={{ opacity: 1, scale: 1 }}
-                exit={isMobile ? { opacity: 1 } : { opacity: 0, scale: 0.99 }}
-                transition={
-                  isMobile
-                    ? { duration: 0 }
-                    : { duration: 0.9, ease: "easeInOut" }
-                }
-                className="absolute inset-0 p-2 sm:p-3"
-              >
-                <Image
-                  src={roles[index].image}
-                  alt={roles[index].title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-contain object-center"
-                  priority
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* ========== TEXT (copy first on small screens) ========== */}
-          <div className="order-1 lg:order-2 flex flex-col justify-center text-left">
-            {/* Badge */}
-            <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-md">
-              <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
-              <span className="font-montserrat text-xs uppercase tracking-[0.25em] text-neutral-200">
-                Leadership • Growth • Influence
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-12">
+          {/* Copy column */}
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-10 shrink-0 bg-blue-500 sm:w-12" />
+              <span className="font-montserrat text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400 sm:text-xs">
+                Dr. Lanre Phillips
               </span>
             </div>
 
-            {/* Headline */}
-            <div className="relative min-h-[110px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[190px]">
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={roles[index].title}
-                  initial={
-                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }
-                  }
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={
-                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }
-                  }
-                  transition={
-                    isMobile
-                      ? { duration: 0 }
-                      : { duration: 0.6, ease: "easeOut" }
-                  }
-                  style={{ willChange: "transform, opacity" }}
-                  className="
-                    absolute inset-0
-                    font-changa-one
-                    text-[2.6rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.6rem]
-                    leading-[1.05]
-                    tracking-tight
-                    text-white
-                  "
-                >
-                  {roles[index].title}
-                </motion.h1>
-              </AnimatePresence>
+            <h1
+              className="mt-5 font-changa-one text-[2.35rem] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[3.25rem] lg:text-[3.5rem]"
+            >
+              Leadership clarity and measurable impact.
+            </h1>
+
+            <div className="mt-5 border-l-2 border-blue-500/60 pl-4">
+              <div
+                className="relative min-h-10 sm:min-h-11"
+                aria-live="polite"
+              >
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={roles[index].title}
+                    initial={
+                      isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }
+                    }
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={
+                      isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }
+                    }
+                    transition={
+                      isMobile
+                        ? { duration: 0 }
+                        : { duration: 0.45, ease: "easeOut" }
+                    }
+                    className="font-montserrat text-base font-semibold leading-snug text-blue-200 sm:text-lg"
+                  >
+                    {roles[index].title}
+                  </motion.p>
+                </AnimatePresence>
+              </div>
             </div>
 
-            {/* Divider */}
-            <div className="mt-8 h-px w-28 bg-linear-to-r from-white/40 to-white/5" />
-
-            {/* Supporting copy */}
-            <p className="mt-8 max-w-xl font-inter text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed">
-              Helping leaders, executives, and high-performing professionals
-              refine clarity, strengthen influence, and create measurable impact
-              through mentorship and speaking.
+            <p className="mt-6 max-w-lg font-inter text-sm leading-relaxed text-neutral-300 sm:text-base">
+              Mentorship and speaking for executives and professionals who
+              want sharper leadership and proven outcomes.
             </p>
 
-            {/* CTA Button */}
-            <div className="mt-10 relative h-[60px]">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <AnimatePresence mode="wait">
                 <motion.a
                   key={roles[index].ctaText}
                   href={roles[index].ctaLink}
                   onClick={(e) => handleScroll(e, roles[index].ctaLink)}
                   initial={
-                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }
                   }
                   animate={{ opacity: 1, y: 0 }}
-                  exit={
-                    isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }
-                  }
+                  exit={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
                   transition={
                     isMobile
                       ? { duration: 0 }
-                      : { duration: 0.5, ease: "easeOut" }
+                      : { duration: 0.4, ease: "easeOut" }
                   }
-                  style={{ willChange: "transform, opacity" }}
-                  className="
-                    absolute
-                    inline-flex items-center gap-3
-                    px-8 py-4
-                    bg-white text-slate-900
-                    rounded-full
-                    font-inter font-semibold text-base
-                    shadow-[0_8px_30px_rgba(255,255,255,0.12)]
-                    hover:shadow-[0_12px_40px_rgba(255,255,255,0.2)]
-                    hover:scale-105
-                    transition-all duration-300
-                    group
-                  "
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-inter text-sm font-semibold text-slate-900 shadow-[0_12px_40px_rgba(0,0,0,0.25)] transition-colors hover:bg-neutral-100 sm:text-base"
                 >
                   {roles[index].ctaText}
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
                 </motion.a>
               </AnimatePresence>
+
+              <a
+                href="#about"
+                onClick={(e) => handleScroll(e, "#about")}
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 py-3.5 font-inter text-sm font-medium text-white/90 backdrop-blur-sm transition-colors hover:border-white/35 hover:bg-white/10 sm:text-base"
+              >
+                About
+              </a>
+            </div>
+          </div>
+
+          {/* Visual column */}
+          <div className="lg:col-span-5">
+            <figure className="mx-auto w-full max-w-md lg:max-w-none">
+              <div
+                className="
+                  relative w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80
+                  shadow-[0_24px_64px_rgba(0,0,0,0.5)]
+                  min-h-[240px] h-[min(48vh,400px)] sm:h-[min(52vh,440px)] lg:h-[min(58vh,520px)]
+                "
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(51,65,85,0.5),#020617_75%)]" />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={roles[index].image}
+                    initial={
+                      isMobile ? { opacity: 1 } : { opacity: 0, scale: 1.02 }
+                    }
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={isMobile ? { opacity: 1 } : { opacity: 0, scale: 0.99 }}
+                    transition={
+                      isMobile
+                        ? { duration: 0 }
+                        : { duration: 0.85, ease: "easeInOut" }
+                    }
+                    className="absolute inset-0 p-2 sm:p-3"
+                  >
+                    <Image
+                      src={roles[index].image}
+                      alt={roles[index].title}
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 40vw"
+                      className="object-contain object-center"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <figcaption className="mt-3 text-center font-montserrat text-[10px] font-semibold uppercase tracking-[0.26em] text-white/40 sm:text-[11px]">
+                Mentorship · Speaking
+              </figcaption>
+            </figure>
+
+            <div
+              className="mt-6 flex justify-center gap-2 lg:mt-8"
+              role="tablist"
+              aria-label="Highlight focus areas"
+            >
+              {roles.map((role, i) => (
+                <button
+                  key={role.title}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === index}
+                  aria-label={`Show: ${role.title}`}
+                  onClick={() => setIndex(i)}
+                  className={[
+                    "h-2 rounded-full transition-all duration-300 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
+                    i === index
+                      ? "w-10 bg-white"
+                      : "w-2 bg-white/30 hover:bg-white/50",
+                  ].join(" ")}
+                />
+              ))}
             </div>
           </div>
         </div>
