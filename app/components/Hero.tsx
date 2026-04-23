@@ -9,7 +9,7 @@ import { useIsMobile } from "@/app/hooks/useIsMobile";
 const roles = [
   {
     title: "Result-Focused Mentoring",
-    image: "/dr-lanre/main-image.jpeg",
+    image: "/dr-lanre/dl-1.jpeg",
     ctaText: "Start Your Journey",
     ctaLink: "#booking",
   },
@@ -22,7 +22,7 @@ const roles = [
   {
     title: "Leadership Speaker",
     image: "/dr-lanre/hero-3.jpeg",
-    ctaText: "Book a Speaking",
+    ctaText: "Book Speaking Engagement",
     ctaLink: "#booking",
   },
   {
@@ -105,37 +105,47 @@ export default function Hero() {
 
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* ========== LEFT: IMAGE SLIDER ========== */}
-          <div className="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[560px] rounded-3xl overflow-hidden border border-white/10 bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          {/* ========== IMAGE SLIDER (full photo: contain + letterbox; desktop stays left) ========== */}
+          <div
+            className="
+              order-2 lg:order-1
+              relative w-full
+              min-h-[260px] h-[min(52vh,420px)] sm:h-[min(58vh,480px)] md:h-[min(62vh,540px)] lg:h-[min(72vh,600px)]
+              rounded-3xl overflow-hidden border border-white/10
+              bg-[radial-gradient(ellipse_at_50%_40%,rgba(30,41,59,0.9),#020617_70%)]
+              shadow-[0_30px_80px_rgba(0,0,0,0.45)]
+            "
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={roles[index].image}
                 initial={
-                  isMobile ? { opacity: 1 } : { opacity: 0, scale: 1.03 }
+                  isMobile ? { opacity: 1 } : { opacity: 0, scale: 1.02 }
                 }
                 animate={{ opacity: 1, scale: 1 }}
-                exit={isMobile ? { opacity: 1 } : { opacity: 0, scale: 0.98 }}
+                exit={isMobile ? { opacity: 1 } : { opacity: 0, scale: 0.99 }}
                 transition={
                   isMobile
                     ? { duration: 0 }
                     : { duration: 0.9, ease: "easeInOut" }
                 }
-                className="absolute inset-0"
+                className="absolute inset-0 p-2 sm:p-3"
               >
                 <Image
                   src={roles[index].image}
                   alt={roles[index].title}
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain object-center"
                   priority
                 />
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* ========== RIGHT: TEXT ========== */}
-          <div className="flex flex-col justify-center text-left">
+          {/* ========== TEXT (copy first on small screens) ========== */}
+          <div className="order-1 lg:order-2 flex flex-col justify-center text-left">
             {/* Badge */}
             <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-md">
               <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
