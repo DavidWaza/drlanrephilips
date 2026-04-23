@@ -33,7 +33,7 @@ const Header = () => {
           {/* LOGO */}
           <Link
             href="/"
-            className="font-montserrat font-bold tracking-tight text-[#14325A] uppercase text-2xl"
+            className="font-montserrat font-bold tracking-tight text-[#14325A] uppercase text-xl"
           >
             dr. lanre phillips
           </Link>
