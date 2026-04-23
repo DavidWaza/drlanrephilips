@@ -9,7 +9,7 @@ import { useIsMobile } from "@/app/hooks/useIsMobile";
 const roles = [
   {
     title: "Result-Focused Mentoring",
-    image: "/dr-lanre/dl-8.jpeg",
+    image: "/dr-lanre/dl-9.jpeg",
     ctaText: "Start Your Journey",
     ctaLink: "#booking",
   },

@@ -52,8 +52,10 @@ export default function About() {
               text-neutral-900
             "
               >
-                Inspiring Impact <br />
-                for over <span className="text-neutral-500">Two Decades</span>
+                <span  className="text-neutral-500">
+                  Inspiring Impact <br />
+                for over <span className="text-neutral-900">Three Decades</span>
+                </span>
               </h2>
 
               {/* Accent line */}
@@ -81,53 +83,24 @@ export default function About() {
                   text-slate-700
                 "
                 >
-                  For over{" "}
-                  <span className="font-semibold text-slate-900">25 years</span>
-                  , Dr. Lanre Phillips has helped motivated individuals and
-                  organisations achieve breakthrough results. Through customized
-                  coaching, workshops, and training programs, he provides the
-                  tools and strategies needed to overcome obstacles and sharpen
-                  leadership capacity.
-                </p>
-
-                <p
-                  className="
-                  font-inter
-                  text-lg md:text-xl
-                  leading-relaxed
-                  text-slate-700
-                "
-                >
-                  Let Dr. Lanre Phillips' battle-tested expertise inspire your
-                  journey of self-improvement, team building, and sustainable
-                  success. It is time to gain the perspective of a true mentor.
+                  Dr. Lanre Phillips is a visionary leader, boasting an
+                  illustrious career spanning close to 3 decades across dynamic
+                  industries such as FMCG, Banking, Telecommunications,
+                  Information Technology and Education Technology across Africa.
+                  Widely acclaimed for his strategic acumen, Dr. Phillips is a
+                  mastermind in driving organizational growth through the twin
+                  pillars of human capacity development and flawless strategic
+                  implementation. His impactful collaborations with diverse
+                  organisations within and outside the African continent
+                  underscore his commitment to operational excellence. A
+                  two-time TED speaker, Dr. Phillips not only shares his
+                  insights but actively shapes the discourse on leadership sales
+                  strategies and innovation amongst other topics. As the
+                  CEO/Principal Partner at Elpee Consults, He continues to
+                  spearhead transformative initiatives, leaving an indelible
+                  mark on the business landscape.
                 </p>
               </div>
-
-              {/* Key areas */}
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                {[
-                  "Leadership Development",
-                  "Team Excellence",
-                  "Strategic Growth",
-                  "Sustainable Results",
-                ].map((item, i) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
-                    className="flex items-center gap-2"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                    <span className="font-inter text-sm text-slate-600">
-                      {item}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-
               {/* CTA Button */}
               <Link href="/about">
                 <motion.button

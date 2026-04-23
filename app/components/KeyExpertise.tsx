@@ -74,7 +74,7 @@ export default function KeyExpertise() {
               text-neutral-900
             "
           >
-            Key area of <span className="text-neutral-500">Expertise</span>
+            Key areas of Expertise
           </h2>
         </motion.div>
 

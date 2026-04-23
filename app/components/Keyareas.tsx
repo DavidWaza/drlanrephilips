@@ -71,7 +71,7 @@ export default function KeyAreas() {
               text-neutral-900
             "
           >
-            How <span className="text-neutral-500">Dr. Lanre Phillips</span>{" "}
+            How Dr. Lanre Phillips{" "}
             Creates Impact
           </h2>
         </motion.div>

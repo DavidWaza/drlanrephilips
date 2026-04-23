@@ -82,12 +82,12 @@ export default function VideoBlock({ youtubeId }: VideoBlockProps) {
               text-neutral-300
             "
           >
-            Insights from the <span className="text-neutral-500">Mentor</span>
+            Insights from the Mentor
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-300">
+          {/* <p className="mt-4 text-base leading-relaxed text-neutral-300">
             Experience Dr. Lanre Phillips’ leadership philosophy and practical
             wisdom through curated video insights.
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Video Container */}
